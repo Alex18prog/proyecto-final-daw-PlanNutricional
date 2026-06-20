@@ -1,0 +1,66 @@
+@model IEnumerable<NutriPlan.Models.ViewModels.MiPlanViewModel>
+@{
+    ViewData["Title"] = "Mi Calendario Semanal";
+    var dias = new[] { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo" };
+}
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+        <div>
+            <h2 class="fw-bold text-dark mb-0">Mi Menú Semanal</h2>
+            <p class="text-muted">Personalizado para tu plan actual</p>
+        </div>
+        
+        <div class="search-box mt-2 mt-md-0">
+            <div class="input-group shadow-sm" style="max-width: 300px;">
+                <span class="input-group-text bg-white border-end-0 text-success"><i class="bi bi-search"></i></span>
+                <input type="text" id="searchRecipe" class="form-control border-start-0" placeholder="Filtrar receta...">
+            </div>
+        </div>
+    </div>
+
+    <ul class="nav nav-pills mb-4 overflow-auto flex-nowrap pb-2 custom-pills" id="pills-tab" role="tablist">
+        @foreach (var dia in dias)
+        {
+            <li class="nav-item" role="presentation">
+                <button class="nav-link @(dia == "Lunes" ? "active" : "") me-2 rounded-pill fw-bold" 
+                        id="pills-@dia-tab" data-bs-toggle="pill" data-bs-target="#pills-@dia" 
+                        type="button" role="tab">@dia</button>
+            </li>
+        }
+    </ul>
+
+    <div class="tab-content" id="pills-tabContent">
+        @foreach (var dia in dias)
+        {
+            <div class="tab-pane fade @(dia == "Lunes" ? "show active" : "")" id="pills-@dia" role="tabpanel">
+                <div class="row g-4">
+                    @foreach (var momento in new[] { "Desayuno", "Comida", "Cena" })
+                    {
+                        var comida = Model.FirstOrDefault(m => m.DiaSemana == dia && m.MomentoDia == momento);
+                        
+                        <div class="col-md-4 recipe-link-container">
+                            <div class="card h-100 border-0 shadow-sm recipe-card clickable-card" 
+                                 data-url='@Url.Action("DetalleReceta", "Usuarios", new { nombre = comida?.NombreReceta })'>
+                                
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <span class="badge bg-success-subtle text-success rounded-pill px-3">@momento</span>
+                                        <span class="text-muted small"><i class="bi bi-fire me-1"></i>@comida?.Calorias kcal</span>
+                                    </div>
+                                    
+                                    <h5 class="card-title fw-bold text-dark recipe-link">@comida?.NombreReceta</h5>
+                                    
+                                    <p class="card-text text-muted small mb-0">Presiona para ver ingredientes y preparación.</p>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 text-end pb-3">
+                                    <i class="bi bi-arrow-right-circle text-success fs-4"></i>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>

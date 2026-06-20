@@ -1,0 +1,21 @@
+@model List<string>
+
+<div class="container mt-5">
+    <h2><i class="bi bi-cart-check"></i> Mi Lista de la Compra</h2>
+    <p>Ingredientes necesarios para tus comidas de esta semana:</p>
+
+    <div class="card p-4">
+        <ul class="list-group">
+            @foreach (var ingrediente in Model)
+            {
+                <li class="list-group-item">
+                    <input class="form-check-input me-1" type="checkbox" value="" id="@ingrediente">
+                    <label class="form-check-label" for="@ingrediente">@ingrediente</label>
+                </li>
+            }
+        </ul>
+        <div class="mt-3">
+            <button class="btn btn-success" onclick="window.print()">Imprimir Lista</button>
+        </div>
+    </div>
+</div>

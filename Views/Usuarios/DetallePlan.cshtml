@@ -1,0 +1,66 @@
+@{
+    var nombrePlan = ViewData["Plan"]?.ToString();
+    ViewData["Title"] = "Detalle: " + nombrePlan;
+
+    string titulo = "", desc = "", color = "", icono = "";
+    if (nombrePlan == "PerderPeso") { 
+        titulo = "Pérdida de Peso"; color = "danger"; icono = "bi-graph-down-arrow"; 
+        desc = "Enfoque en déficit calórico para reducir grasa corporal sin pasar hambre.";
+    }
+    else if (nombrePlan == "GanarMusculo") { 
+        titulo = "Ganar Músculo"; color = "primary"; icono = "bi-person-arms-up"; 
+        desc = "Superávit energético y alta proteína para construir tejido muscular magro.";
+    }
+    else { 
+        titulo = "Mantenerse"; color = "success"; icono = "bi-activity"; 
+        desc = "Nutrición balanceada para vitalidad y salud a largo plazo.";
+    }
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-lg overflow-hidden rounded-4">
+                <div class="bg-@color p-5 text-white text-center">
+                    <div class="icon-circle-large bg-white text-@color mx-auto mb-3 shadow">
+                        <i class="bi @icono"></i>
+                    </div>
+                    <h2 class="fw-bold">@titulo</h2>
+                </div>
+
+                <div class="card-body p-5">
+                    <h4 class="fw-bold mb-3 text-dark">¿En qué consiste?</h4>
+                    <p class="text-muted fs-5 mb-5">@desc</p>
+
+                    <div class="bg-light p-4 rounded-4 mb-5 border-start border-@color border-4">
+                        <h6 class="fw-bold mb-2">Información del Plan</h6>
+                        <ul class="list-unstyled mb-0 small text-secondary">
+                            <li class="mb-2"><i class="bi bi-check2-circle text-@color me-2"></i> Recetas personalizadas cada semana.</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-@color me-2"></i> Lista de la compra automática.</li>
+                            <li><i class="bi bi-check2-circle text-@color me-2"></i> Ajuste calórico según tu perfil físico.</li>
+                        </ul>
+                    </div>
+
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                        <a asp-action="Planes" class="btn btn-outline-secondary px-4 py-2 rounded-pill">
+                            <i class="bi bi-arrow-left me-2"></i>Ver otros
+                        </a>
+
+                        @if (Context.Session.GetInt32("UsuarioId") != null)
+                        {
+                            <a asp-action="GuardarPlan" asp-route-plan="@nombrePlan" class="btn btn-warning px-4 py-2 rounded-pill fw-bold shadow-sm">
+                                <i class="bi bi-arrow-repeat me-2"></i>Cambiar mi plan por este
+                            </a>
+                        }
+                        else
+                        {
+                            <a asp-action="Registro" asp-route-planElegido="@nombrePlan" class="btn btn-primary px-4 py-2 rounded-pill fw-bold shadow-sm">
+                                <i class="bi bi-rocket-takeoff me-2"></i>¡Quiero empezar este plan!
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

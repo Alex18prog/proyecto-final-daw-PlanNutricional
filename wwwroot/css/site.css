@@ -1,0 +1,293 @@
+:root {
+    --verde-principal: #28a745;
+    --verde-oscuro: #1e7e34;
+    --verde-suave: #e8f5e9;
+    --fondo-suave: #f4f7f6;
+    --blanco: #ffffff;
+    --sombra: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: var(--fondo-suave);
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- ESTILOS DEL HOME --- */
+.hero-section {
+    padding: 100px 0;
+    background: radial-gradient(circle at top right, #f0fff4, var(--blanco));
+    border-radius: 0 0 100px 100px;
+    margin-bottom: 60px;
+}
+
+.logo-wrapper {
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.logo-main-img {
+    filter: drop-shadow(0 10px 20px rgba(40, 167, 69, 0.2));
+    border-radius: 20px;
+    background: var(--blanco);
+    padding: 12px;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.logo-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+.btn-cta {
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px var(--sombra) !important;
+}
+
+/* --- TARJETAS --- */
+.feature-card {
+    border: none !important;
+    border-radius: 25px !important;
+    transition: all 0.3s ease;
+    background: var(--blanco);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px var(--sombra) !important;
+}
+
+.icon-box {
+    width: 75px;
+    height: 75px;
+    background-color: var(--verde-suave);
+    color: var(--verde-oscuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+/* --- CALENDARIO Y TABLAS --- */
+.table-dark {
+    background-color: var(--verde-oscuro) !important;
+    border-color: var(--verde-oscuro);
+}
+
+.table td {
+    vertical-align: middle;
+    height: 85px;
+    background: var(--blanco);
+}
+
+.recipe-link {
+    transition: all 0.3s ease;
+    border-radius: 12px !important;
+    padding: 12px !important;
+    display: block;
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.recipe-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    filter: brightness(105%);
+}
+
+/* --- COMPONENTES --- */
+#searchRecipe {
+    border-radius: 25px;
+    padding-left: 20px;
+    border: 2px solid #ddd;
+    transition: border-color 0.3s;
+}
+
+#searchRecipe:focus {
+    border-color: var(--verde-principal);
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    outline: none;
+}
+
+/* Animación de entrada suave */
+main {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Evita que el enlace subraye el texto o cambie colores */
+.card-wrapper {
+    display: block;
+    color: inherit;
+    transition: transform 0.2s ease;
+}
+
+.card-wrapper:hover {
+    text-decoration: none !important;
+}
+
+.card-wrapper:active {
+    transform: scale(0.95); 
+}
+
+/* --- ESTILOS LOGIN --- */
+.login-page {
+    background: linear-gradient(135deg, #f8fdf9 0%, #e8f5e9 100%);
+    margin-top: -24px; 
+}
+
+.login-card {
+    border-radius: 30px !important;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.login-card .form-control {
+    border-radius: 12px;
+    padding: 12px 15px;
+}
+
+.login-card .form-control:focus {
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.15);
+    border-color: var(--verde-principal);
+}
+
+.login-card .input-group-text {
+    border-radius: 12px 0 0 12px;
+}
+
+.login-card .btn-success {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.login-card .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(40, 167, 69, 0.2);
+}
+
+/* --- ESTILOS DASHBOARD PERFIL --- */
+#perfil-content .icon-box-small {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+#perfil-content .hover-card {
+    transition: all 0.3s ease;
+    border: 1px solid transparent !important;
+}
+
+#perfil-content .hover-card:hover {
+    transform: translateY(-5px);
+    border-color: #dee2e6 !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05) !important;
+}
+
+.bg-success-subtle { background-color: #e8f5e9; }
+.bg-primary-subtle { background-color: #e3f2fd; }
+.bg-warning-subtle { background-color: #fff3e0; }
+
+/* --- ESTILOS MI PLAN --- */
+.custom-pills .nav-link {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    border: 1px solid #dee2e6;
+    white-space: nowrap;
+}
+
+.custom-pills .nav-link.active {
+    background-color: #198754 !important;
+    color: white !important;
+    border-color: #198754 !important;
+}
+
+.recipe-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 18px !important;
+}
+
+.recipe-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1) !important;
+}
+
+.bg-success-subtle {
+    background-color: #e8f5e9 !important;
+}
+
+/* Para el buscador: suavizar el difuminado */
+.recipe-link-container {
+    transition: opacity 0.4s ease;
+}
+
+/* --- ESTILOS DETALLE RECETA --- */
+.preparation-text {
+    font-size: 1.1rem;
+    white-space: pre-line; 
+}
+
+.form-check-input:checked + .form-check-label {
+    text-decoration: line-through;
+    color: #adb5bd;
+}
+
+.bg-primary-subtle { background-color: #e3f2fd !important; }
+
+/* --- ESTILOS MEJORADOS DE PLANES --- */
+.plan-card-hover {
+    transition: all 0.3s ease;
+    border-radius: 20px !important;
+}
+
+.plan-card-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
+
+.icon-circle {
+    width: 65px;
+    height: 65px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+.bg-danger-subtle { background-color: #ffebee !important; }
+.bg-primary-subtle { background-color: #e3f2fd !important; }
+.bg-success-subtle { background-color: #e8f5e9 !important; }
+
+.icon-circle-large {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.bg-danger { background-color: #dc3545 !important; }
+.bg-primary { background-color: #0d6efd !important; }
+.bg-success { background-color: #198754 !important; }

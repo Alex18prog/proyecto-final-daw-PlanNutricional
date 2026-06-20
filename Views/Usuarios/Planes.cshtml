@@ -1,0 +1,53 @@
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold display-5 text-dark">Nuestros Planes Nutricionales</h2>
+        <p class="text-muted fs-5">Selecciona el enfoque que mejor se adapte a tus objetivos actuales.</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <a asp-action="DetallePlan" asp-route-nombre="PerderPeso" class="text-decoration-none">
+                <div class="card h-100 border-0 shadow-sm p-4 text-center plan-card-hover">
+                    <div class="icon-circle bg-danger-subtle text-danger mx-auto mb-3">
+                        <i class="bi bi-graph-down-arrow"></i>
+                    </div>
+                    <h4 class="fw-bold text-dark">Perder Peso</h4>
+                    <p class="text-muted small px-2">Enfoque en déficit calórico controlado para reducir grasa manteniendo tu energía.</p>
+                    <div class="mt-auto pt-3">
+                        <span class="text-success fw-bold small">Ver detalles <i class="bi bi-chevron-right"></i></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-action="DetallePlan" asp-route-nombre="GanarMusculo" class="text-decoration-none">
+                <div class="card h-100 border-0 shadow-sm p-4 text-center plan-card-hover">
+                    <div class="icon-circle bg-primary-subtle text-primary mx-auto mb-3">
+                        <i class="bi bi-person-arms-up"></i>
+                    </div>
+                    <h4 class="fw-bold text-dark">Ganar Músculo</h4>
+                    <p class="text-muted small px-2">Enfoque en alta densidad proteica y superávit controlado para el desarrollo muscular.</p>
+                    <div class="mt-auto pt-3">
+                        <span class="text-success fw-bold small">Ver detalles <i class="bi bi-chevron-right"></i></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-action="DetallePlan" asp-route-nombre="Mantenerse" class="text-decoration-none">
+                <div class="card h-100 border-0 shadow-sm p-4 text-center plan-card-hover">
+                    <div class="icon-circle bg-success-subtle text-success mx-auto mb-3">
+                        <i class="bi bi-activity"></i>
+                    </div>
+                    <h4 class="fw-bold text-dark">Mantenerse</h4>
+                    <p class="text-muted small px-2">Equilibrio nutricional óptimo para mantener tu composición actual y vitalidad.</p>
+                    <div class="mt-auto pt-3">
+                        <span class="text-success fw-bold small">Ver detalles <i class="bi bi-chevron-right"></i></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
